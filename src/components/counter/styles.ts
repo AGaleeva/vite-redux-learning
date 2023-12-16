@@ -7,7 +7,7 @@ export const CounterWrapper = styled.div`
   align-items: center;
   gap: 15px;
   padding: 40px;
-  width: 300px;
+  min-width: 400px;
   height: fit-content;
   background-color: ${colors.primary};
 `;
