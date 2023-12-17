@@ -1,5 +1,5 @@
-import {createSelector} from '@reduxjs/toolkit';
-import {RootState} from 'store/store'
+import { createSelector } from '@reduxjs/toolkit';
+import { RootState } from 'store/store';
 
 // Забираем все, что лежит в глобальном стэйте
 const globalState = (state: RootState) => state
