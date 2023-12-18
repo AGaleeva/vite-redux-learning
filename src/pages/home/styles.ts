@@ -13,7 +13,7 @@ export const UserForm = styled.form`
   gap: 20px;
   padding: 20px;
   min-width: 500px;
-  min-height: 300px;
+  height: fit-content;
   border-radius: 8px;
   border: 1px solid black;
 `;
