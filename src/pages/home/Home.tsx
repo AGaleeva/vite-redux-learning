@@ -6,32 +6,6 @@ import Input from "components/input";
 import Button from "components/button";
 import { usersActions } from 'store/redux/users/userSlice';
 
-// function Home () {
-//   const dispatch = useDispatch()
-//   const formik = useFormik({
-//     initialValues: {
-//       firstLastName: '',
-//       age: '',
-//       jobTitle: '',
-//     },
-//     onSubmit: (values) => {
-//       dispatch(usersActions.addUser(values))      
-//     }
-//   })
-//   return (
-//     <HomePageWrapper>
-//       <UserForm onSubmit={formik.handleSubmit}>
-//         <UserFormName>Create user</UserFormName>
-//         <Input name="firstLastName" value={formik.values.firstLastName} label="First/Last name" onChange={formik.handleChange} />
-//         <Input name="age" value={formik.values.age}  label="Age" onChange={formik.handleChange} />
-//         <Input name="jobTitle" value={formik.values.jobTitle}  label="Job title" onChange={formik.handleChange} />
-//         <Button name="Create" type="submit" />
-//       </UserForm>
-//     </HomePageWrapper>
-//   )
-// }
-
-
 function Home() {
   const dispatch = useDispatch()
   const formik = useFormik({
@@ -40,8 +14,9 @@ function Home() {
       age: "",
       jobTitle: "",
     },
-    onSubmit: (values) => {
-      dispatch(usersActions.addUser(values))
+    onSubmit: (values, actions) => {
+      dispatch(usersActions.addUser(values));
+      actions.resetForm();
     },
   })
   return (
