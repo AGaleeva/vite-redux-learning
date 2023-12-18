@@ -1,15 +1,27 @@
 import GlobalStyles from "./styles/GlobalStyles"
+import Layout from "components/layout";
+import { Route, Routes} from 'react-router-dom';
 
-import Homework29 from "./homeworks/homework29"
-import Lesson30 from "lessons/lesson30"
-import Homework31 from "homeworks/homework31"
+import Home from './pages/home';
+import Users from "pages/users";
+
+// import Homework29 from "./homeworks/homework29"
+// import Lesson30 from "lessons/lesson30"
+// import Homework31 from "homeworks/homework31"
 
 function App() {
   return (
     <>
-      <GlobalStyles />              
+      <GlobalStyles />
+      <Layout>
+        <Routes>
+          <Route path="/" element={<Home/>} />
+          <Route path="/users" element={<Users/>} />
+          <Route path="*" element="Page is not found" />
+        </Routes>      
+      </Layout>
       {/* <Homework29/> */}
-      <Homework31 />
+      {/* <Homework31 /> */}
       {/* <Lesson30 /> */}
     </>
   )
