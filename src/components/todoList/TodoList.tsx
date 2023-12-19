@@ -18,10 +18,12 @@ function TodoList() {
       todo: "",      
     },
     onSubmit: (values) => {
-      dispatch(todosActions.addTodo(values))     
+      if (values.todo.trim().length === 0) {
+      alert("Please enter some data");
+      return;} else{
+      dispatch(todosActions.addTodo(values))}     
     },
-  })
-  
+  })  
   return (
     <TodoListWrapper>
       <InputContainer onSubmit={formik.handleSubmit}>
