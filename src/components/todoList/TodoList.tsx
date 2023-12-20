@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useFormik } from "formik";
+// import { useState, ChangeEvent } from 'react'; - для примера контроля инпута через useState
 
 import Input from "components/input";
 import Button from "components/button";
@@ -13,15 +14,19 @@ function TodoList() {
   const dispatch = useDispatch()
   const todoList = useSelector(todosState)
 
+  // const [todoValue, setTodoValue] = useState<string>('')
+
   const formik = useFormik({
     initialValues: {
       todo: "",      
     },
     onSubmit: (values) => {
+      // if(!formik.values.todo)
       if (values.todo.trim().length === 0) {
       alert("Please enter some data");
-      return;} else{
-      dispatch(todosActions.addTodo(values))}     
+      return;
+    } 
+      dispatch(todosActions.addTodo(values.todo))     
     },
   })  
   return (
@@ -38,16 +43,30 @@ function TodoList() {
           <Button name="Create event" type="submit" />
         </ButtonContainer>
       </InputContainer>
+
+   {/* контроль через useState */}
+        {/* <Input
+          label="Input event"
+          placeholder="Input event"
+          // name="todo"
+          value={todoValue}
+          onChange={(event: ChangeEvent<HTMLInputElement>) => {
+            setTodoValue(event.target.value)
+          } }
+
+      дальше кнопке добавить на событие onClick dispatch action  
+        /> */}
+
       <CreatedListContainer>
         <List>
-          {todoList.todos.map((event: Todo) => (
+          {todoList.todos.map((event: Todo, index: number) => (
             <li
-              key={v4()}
+              key={event.id}
               onClick={() => {
                 dispatch(todosActions.deleteTodo(event.id))
               }}
-            >
-              {event.todo}
+            >              
+              {`${index + 1}. ${event.todo}`} 
             </li>
           ))}
         </List>

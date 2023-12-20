@@ -7,6 +7,3 @@ export interface TodoState {
   todos : Todo[]
 }
 
-export interface AddTodoPayload {
-  todo: string,
-}
