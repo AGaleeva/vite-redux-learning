@@ -1,5 +1,5 @@
 import WeatherButton from "../weatherButton"
-import { ButtonsBlockWrapper, CityName, IconWrapper, MainWeatherWrapper, Temp, TempWrapper, WeatherInfoWrapper } from "./styles"
+import { ButtonsBlockWrapper, CityName, IconWrapper, MainWeatherWrapper, Temp, TempWrapper, WeatherButtonContainer, WeatherInfoWrapper } from "./styles"
 
 interface WeathersProps {
   temp: string
@@ -16,7 +16,7 @@ function WeatherInfo ({temp, cityName, icon, isShowOnlyDeleteButton, onDelete, o
       <WeatherInfoWrapper>
         <TempWrapper>
           <Temp>{temp}</Temp>
-          <CityName>{cityName}</CityName>          
+          <CityName>{cityName}</CityName>
         </TempWrapper>
         <IconWrapper>
           <img
@@ -26,14 +26,29 @@ function WeatherInfo ({temp, cityName, icon, isShowOnlyDeleteButton, onDelete, o
         </IconWrapper>
       </WeatherInfoWrapper>
       <ButtonsBlockWrapper>
-          { isShowOnlyDeleteButton ? (
-            <WeatherButton name="Delete" style={{ background: 'none', border: '1px solid white' }} onClick={onDelete} />
-          ) : (
-            <>
-              <WeatherButton name="Save" style={{ background: 'none', border: '1px solid white' }} onClick={onSave} />
-              <WeatherButton name="Delete" style={{ background: 'none', border: '1px solid white' }} onClick={onDelete} />
-            </>
-          )}
+        {isShowOnlyDeleteButton ? (
+          <WeatherButtonContainer>            
+            <WeatherButton
+              name="Delete"              
+              onClick={onDelete}
+            />
+          </WeatherButtonContainer>
+        ) : (
+          <>
+            <WeatherButtonContainer>                        
+              <WeatherButton
+                name="Save"              
+                onClick={onSave}
+              />
+            </WeatherButtonContainer>
+            <WeatherButtonContainer>            
+              <WeatherButton
+                name="Delete"              
+                onClick={onDelete}
+              />
+            </WeatherButtonContainer>
+          </>
+        )}
       </ButtonsBlockWrapper>
     </MainWeatherWrapper>
   )

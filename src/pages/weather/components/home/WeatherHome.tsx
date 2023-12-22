@@ -1,7 +1,7 @@
 import { ChangeEvent, useState } from 'react';
 
 import WeatherInfo from "../weatherInfo";
-import { InputButtonWrapper, InputInfoCardWrapper, Paragraph } from './styles';
+import { InputButtonWrapper, InputInfoCardWrapper, Paragraph, WeatherButtonContainer } from './styles';
 import WeatherButton from '../weatherButton';
 import WeatherInput from '../weatherInput';
 import { AppDispatch } from 'store/store';
@@ -33,12 +33,14 @@ function WeatherHome() {
           value={city}
           onChange={onChangeCity}
         />
-        <WeatherButton
-          name="Search"
-          onClick={() => {
-            dispatch(getWeatherInfo(city))
-          }}
-        />
+        <WeatherButtonContainer>
+          <WeatherButton
+            name="Search"
+            onClick={() => {
+              dispatch(getWeatherInfo(city))
+            }}
+          />
+        </WeatherButtonContainer>
       </InputButtonWrapper>
       {isLoading && <Paragraph>Loading...</Paragraph>}
       {weatherCard && (
@@ -55,7 +57,15 @@ function WeatherHome() {
           }}
         />
       )}
-      {error && <WeatherError code={error.code} message={error.message} onDelete={() => {dispatch(weatherActions.deleteErrorCard())}} />}
+      {error && (
+        <WeatherError
+          code={error.code}
+          message={error.message}
+          onDelete={() => {
+            dispatch(weatherActions.deleteErrorCard())
+          }}
+        />
+      )}
     </InputInfoCardWrapper>
   )
 }

@@ -23,3 +23,7 @@ export const Paragraph = styled.p`
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bolder;
 `;
+
+export const WeatherButtonContainer = styled.div`
+  width: 150px;
+`;

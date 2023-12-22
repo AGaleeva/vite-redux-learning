@@ -56,3 +56,11 @@ export const ButtonsBlockWrapper = styled.div`
   width: 440px;
 `;
 
+export const WeatherButtonContainer = styled.div`
+  width: 150px;
+  & button {
+    background: none;
+    border: 1px solid white;    
+  }  
+`;
+
