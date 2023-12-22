@@ -1,0 +1,64 @@
+import { ChangeEvent, useState } from 'react';
+
+import WeatherInfo from "../weatherInfo";
+import { InputButtonWrapper, InputInfoCardWrapper, Paragraph } from './styles';
+import WeatherButton from '../weatherButton';
+import WeatherInput from '../weatherInput';
+import { AppDispatch } from 'store/store';
+import { useDispatch, useSelector } from 'react-redux';
+import { weatherSelector } from 'store/redux/weather/selectors';
+import { getWeatherInfo, weatherActions } from 'store/redux/weather/weatherSlice';
+import WeatherError from '../weatherError';
+import weatherError from '../weatherError';
+
+interface WeatherErrorData {
+  code: string
+  message: string
+}
+
+function WeatherHome() {
+  const dispatch: AppDispatch = useDispatch()
+  const {weatherCard, weatherCardsArray, error, isLoading} = useSelector(weatherSelector)
+  
+  const [city, setCity] = useState<string>("")
+  const onChangeCity = (event: ChangeEvent<HTMLInputElement>) => {
+    setCity(event.target.value)
+  }
+
+  return (
+    <InputInfoCardWrapper>
+      <InputButtonWrapper>
+        <WeatherInput
+          placeholder="Enter city name"
+          value={city}
+          onChange={onChangeCity}
+        />
+        <WeatherButton
+          name="Search"
+          onClick={() => {
+            dispatch(getWeatherInfo(city))
+          }}
+        />
+      </InputButtonWrapper>
+      {isLoading && <Paragraph>Loading...</Paragraph>}
+      {weatherCard && (
+        <WeatherInfo
+          temp={weatherCard.temp}
+          icon={weatherCard.icon}
+          cityName={weatherCard.cityName}
+          isShowOnlyDeleteButton={false}
+          onDelete={() => {
+            dispatch(weatherActions.clearWeatherCard())
+          }}
+          onSave={() => {
+            dispatch(weatherActions.addWeatherCard())
+          }}
+        />
+      )}
+      {error && <WeatherError code={error.code} message={error.message} onDelete={() => {dispatch(weatherActions.deleteErrorCard())}} />}
+    </InputInfoCardWrapper>
+  )
+}
+
+export default WeatherHome;
+

@@ -1,8 +1,12 @@
-import JokeGenerator from "components/jokeGenerator"
+// import JokeGenerator from "components/jokeGenerator"
+import Weather from "pages/weather"
 import GlobalStyles from "./styles/GlobalStyles"
-// import Layout from "components/layout";
-// import { Route, Routes} from 'react-router-dom';
+import CatFacts from "components/catFacts"
+import { Route, Routes} from 'react-router-dom';
+import WeatherHome from "pages/weather/components/home";
+import Weathers from "pages/weather/components/weathers";
 
+// import Layout from "components/layout";
 // import Home from './pages/home';
 // import Users from "pages/users";
 
@@ -16,7 +20,16 @@ function App() {
   return (
     <>
       <GlobalStyles />
-      <JokeGenerator />
+      <Weather>
+        <Routes>
+          <Route path="/" element={<WeatherHome />} />
+          <Route path="/weathers" element={<Weathers />} />
+          <Route path="*" element="Page is not found" />
+        </Routes>
+      </Weather>
+
+      {/* <CatFacts /> */}
+      {/* <JokeGenerator /> */}
       {/* <Layout>
         <Routes>
           <Route path="/" element={<Home/>} />

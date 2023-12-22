@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const JokeGeneratorWrapper = styled.div`
   display: flex;
+  flex-direction: column;
   flex: 1;
   justify-content: center;
   padding: 40px;
