@@ -9,7 +9,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { weatherSelector } from 'store/redux/weather/selectors';
 import { getWeatherInfo, weatherActions } from 'store/redux/weather/weatherSlice';
 import WeatherError from '../weatherError';
-import weatherError from '../weatherError';
 
 interface WeatherErrorData {
   code: string

@@ -1,5 +1,5 @@
 import WeatherButton from "../weatherButton"
-import { ApiError, ErrorMessage, WeatherErrorWrapper } from "./styles"
+import { ApiError, ErrorMessage, WeatherButtonContainer, WeatherErrorWrapper } from "./styles"
 import { WeatherErrorProps } from "./types"
 
 function WeatherError({ code, message, onDelete }: WeatherErrorProps) {
@@ -9,11 +9,12 @@ function WeatherError({ code, message, onDelete }: WeatherErrorProps) {
     <WeatherErrorWrapper>
       <ApiError>API Error:{code}</ApiError>
       <ErrorMessage>{message}</ErrorMessage>
-      <WeatherButton
-        name="Delete"
-        style={{ background: "none", border: "1px solid white" }}
-        onClick={onDelete}
-      />
+      <WeatherButtonContainer>
+        <WeatherButton
+          name="Delete"          
+          onClick={onDelete}
+        />
+      </WeatherButtonContainer>
     </WeatherErrorWrapper>
   )
 }

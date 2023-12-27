@@ -1,13 +1,6 @@
-import { createSlice, AsyncThunk, PayloadAction, createAsyncThunk } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction, createAsyncThunk } from '@reduxjs/toolkit';
 import  {WeatherState, WeatherCard } from './types'
 import { v4 } from 'uuid';
-
-const emptyWeatherCard: WeatherCard = {
-  id: '',
-  temp: '',
-  cityName: '',
-  icon: ''
-};
 
 const weatherInitialState: WeatherState = {
 weatherCard: undefined,
@@ -16,10 +9,9 @@ error: undefined,
 isLoading: false,
 }
 
-
 export const getWeatherInfo = createAsyncThunk(
   'WEATHER_APP/getWeatherInfo',
-  async (city: string, { rejectWithValue }) => {
+    async (city: string, { rejectWithValue }) => {
     const APP_ID: string = "e6393aad6b894d00cd609e72c2eaa034";
     const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${APP_ID}`)
     const result = await response.json()

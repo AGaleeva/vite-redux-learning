@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 // export
 
+
 export const WeatherCardsContainer = styled.div`
   display: flex;  
   flex-direction: column;

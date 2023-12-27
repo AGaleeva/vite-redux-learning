@@ -4,8 +4,8 @@ import { colors } from "styles/colors";
 export const MainWeatherWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  width: 709px;
+  justify-content: space-between;  
+  width: 100%;
   height: 220px;
   padding: 16px 30px;
   background: linear-gradient(

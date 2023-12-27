@@ -27,14 +27,16 @@ function Weathers() {
           />
         ))}
       </WeatherCardsContainer>
-      <WeatherButtonContainer>
-        <WeatherButton
-          name="Delete all weather cards"
-          onClick={() => {
-            dispatch(weatherActions.removeAllWeatherCard())
-          }}
-        />
-      </WeatherButtonContainer>
+      {weatherCardsArray.length > 0 && (
+        <WeatherButtonContainer>
+          <WeatherButton
+            name="Delete all weather cards"
+            onClick={() => {
+              dispatch(weatherActions.removeAllWeatherCard())
+            }}
+          />
+        </WeatherButtonContainer>
+      )}
     </>
   )
 }

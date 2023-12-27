@@ -55,22 +55,3 @@ function WeatherInfo ({temp, cityName, icon, isShowOnlyDeleteButton, onDelete, o
 }
 
 export default WeatherInfo;
-
-
-
-{/* <WeatherInfo temp={weatherData.temp} city=(weatherData.city) и т.д /> */}
-
-
-
-//  <WeatherInfo 
-// temp={weatherData.temp}
-//  city=(weatherData.city)
-//  isShowOnlyDeleteButton={true}
-//   onDelete={() => {dispatch(weatherActions.deleteWeatherCard(weatherCard.id))}} /> 
-
-//   const weatherInitialState: WeatherInitialState = {
-//   weatherCard: {id: 'someId', temp:"13deg", city: "Berlin", icon: "iconURL"}
-//   weatherCardsArray: [{id: 'someId', temp:"13deg", city: "Berlin", icon: "iconURL"}, {id: 'someId', temp:"13deg", city: "Berlin", icon: "iconURL"}],
-//   error: null,
-//   isLoading: false,
-// }
