@@ -5,12 +5,19 @@ interface WeathersProps {
   temp: string
   cityName: string
   icon: string
-  isShowOnlyDeleteButton: boolean,
+  isShowOnlyDeleteButton?: boolean,
   onDelete: any,
   onSave?: any,
 }
 
-function WeatherInfo ({temp, cityName, icon, isShowOnlyDeleteButton, onDelete, onSave}: WeathersProps) {
+function WeatherInfo({
+  temp,
+  cityName,
+  icon,
+  isShowOnlyDeleteButton = false,
+  onDelete,
+  onSave,
+}: WeathersProps) {
   return (
     <MainWeatherWrapper>
       <WeatherInfoWrapper>
@@ -27,25 +34,16 @@ function WeatherInfo ({temp, cityName, icon, isShowOnlyDeleteButton, onDelete, o
       </WeatherInfoWrapper>
       <ButtonsBlockWrapper>
         {isShowOnlyDeleteButton ? (
-          <WeatherButtonContainer>            
-            <WeatherButton
-              name="Delete"              
-              onClick={onDelete}
-            />
+          <WeatherButtonContainer>
+            <WeatherButton name="Delete" onClick={onDelete} />
           </WeatherButtonContainer>
         ) : (
           <>
-            <WeatherButtonContainer>                        
-              <WeatherButton
-                name="Save"              
-                onClick={onSave}
-              />
+            <WeatherButtonContainer>
+              <WeatherButton name="Save" onClick={onSave} />
             </WeatherButtonContainer>
-            <WeatherButtonContainer>            
-              <WeatherButton
-                name="Delete"              
-                onClick={onDelete}
-              />
+            <WeatherButtonContainer>
+              <WeatherButton name="Delete" onClick={onDelete} />
             </WeatherButtonContainer>
           </>
         )}

@@ -10,10 +10,6 @@ import { weatherSelector } from 'store/redux/weather/selectors';
 import { getWeatherInfo, weatherActions } from 'store/redux/weather/weatherSlice';
 import WeatherError from 'pages/weather/components/weatherError';
 
-interface WeatherErrorData {
-  code: string
-  message: string
-}
 
 function WeatherHome() {
   const dispatch: AppDispatch = useDispatch()
@@ -47,7 +43,7 @@ function WeatherHome() {
           temp={weatherCard.temp}
           icon={weatherCard.icon}
           cityName={weatherCard.cityName}
-          isShowOnlyDeleteButton = {false}
+          // isShowOnlyDeleteButton={false} - этот параметр указывать не обязательно, т.к. он по умолчанию false
           onDelete={() => {
             dispatch(weatherActions.clearWeatherCard())
           }}
