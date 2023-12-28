@@ -1,10 +1,12 @@
 import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit"
 
-import {counterReducer} from './redux/counter/counterSlice';
+import { counterReducer } from './redux/counter/counterSlice';
 import { feedbackReducer } from "./redux/feedback/feedbackSlice";
 import { usersReducers } from './redux/users/userSlice'
 import { todosReducers } from "./redux/todoList/todoListSlice";
 import { jokeGeneratorReducers } from './redux/jokeGenerator/jokeGeneratorSlice'
+import { catFactsReducers } from "./redux/catFacts/catFactsSlice";
+import { weatherReducers } from './redux/weather/weatherSlice';
 
 export const store = configureStore({
   reducer: {
@@ -13,6 +15,8 @@ export const store = configureStore({
     users: usersReducers,
     todos: todosReducers,
     jokeGenerator: jokeGeneratorReducers,
+    catFacts: catFactsReducers,
+    weather: weatherReducers,
   },
 })
 

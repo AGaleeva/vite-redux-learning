@@ -10,7 +10,7 @@ const jokeGeneratorInitialState: JokeGeneratorState = {
 
 // Создается асинхронный middleware функция Thunk через createAsyncThun
 
-export const getJoke = createAsyncThunk('JOKE_GENERATO/getJoke', async () => {
+export const getJoke = createAsyncThunk('JOKE_GENERATOR/getJoke', async () => {
   // делаем get-запрос на сервер  
   const response = await fetch('https://official-joke-api.appspot.com/random_joke')
 
