@@ -1,14 +1,14 @@
 import { ChangeEvent, useState } from 'react';
 
-import WeatherInfo from "../weatherInfo";
+import WeatherInfo from 'pages/weather/components/weatherInfo';
 import { InputButtonWrapper, InputInfoCardWrapper, Paragraph, WeatherButtonContainer } from './styles';
-import WeatherButton from '../weatherButton';
-import WeatherInput from '../weatherInput';
+import WeatherButton from 'pages/weather/components/weatherButton';
+import WeatherInput from 'pages/weather/components/weatherInput';
 import { AppDispatch } from 'store/store';
 import { useDispatch, useSelector } from 'react-redux';
 import { weatherSelector } from 'store/redux/weather/selectors';
 import { getWeatherInfo, weatherActions } from 'store/redux/weather/weatherSlice';
-import WeatherError from '../weatherError';
+import WeatherError from 'pages/weather/components/weatherError';
 
 interface WeatherErrorData {
   code: string
@@ -47,7 +47,7 @@ function WeatherHome() {
           temp={weatherCard.temp}
           icon={weatherCard.icon}
           cityName={weatherCard.cityName}
-          isShowOnlyDeleteButton={false}
+          isShowOnlyDeleteButton = {false}
           onDelete={() => {
             dispatch(weatherActions.clearWeatherCard())
           }}

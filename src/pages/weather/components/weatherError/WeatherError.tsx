@@ -1,10 +1,9 @@
-import WeatherButton from "../weatherButton"
+import WeatherButton from 'pages/weather/components/weatherButton'
 import { ApiError, ErrorMessage, WeatherButtonContainer, WeatherErrorWrapper } from "./styles"
 import { WeatherErrorProps } from "./types"
 
 function WeatherError({ code, message, onDelete }: WeatherErrorProps) {
-  console.log(code, message)
-
+ 
   return (
     <WeatherErrorWrapper>
       <ApiError>API Error:{code}</ApiError>

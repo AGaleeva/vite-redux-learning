@@ -1,4 +1,4 @@
-import WeatherButton from "../weatherButton"
+import WeatherButton from 'pages/weather/components/weatherButton'
 import { ButtonsBlockWrapper, CityName, IconWrapper, MainWeatherWrapper, Temp, TempWrapper, WeatherButtonContainer, WeatherInfoWrapper } from "./styles"
 
 interface WeathersProps {
